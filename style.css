@@ -1,0 +1,583 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+	scroll-behavior: smooth; /* 讓滾動行為平滑 */
+	
+}
+
+.background-image {
+    background-image: url("素材/background1.png"); /* 替換成你圖片的路徑 */
+    background-size: cover; /* 背景圖片會覆蓋整個區塊 */
+    background-position: center; /* 背景圖片會置中 */
+    height: 100vh; /* 設置區塊的高度為視窗高度 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: left;
+	position: relative; /* 為了定位其他絕對定位元素 */ 
+}
+
+.overlay-image {
+    position: absolute; /* 設置絕對定位 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保圖片覆蓋整個區塊 */
+    pointer-events: none; /* 避免疊加圖片影響點擊事件 */
+}
+
+.overlay-bar {
+    position: absolute; /* 設置絕對定位 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh; /* 設置高度為視窗高度的六分之一 */
+    background-color: rgba(50, 50, 50, 0.96); /* 深灰色，透明度96% */
+	display: flex; /* 使用 flex 布局 */
+    align-items: center; /* 垂直居中 */
+    justify-content: space-between; /* 兩端對齊 */
+    padding: 0 1em; /* 左右內邊距 */
+	box-sizing: border-box; /* 確保 padding 包含在寬度內 */
+}
+
+.title {
+	font-size: 5vh; /* 設置文字大小略小於色塊高度 */
+    margin-left: 0.5em; /* 調整文字左邊距為一個字母寬 */
+	
+    color: white;
+}
+
+.links {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+  
+	  margin-left: -2em; /* 向左移動約一個字母寬 */
+   
+}
+
+.links a {
+    font-size: 2.5vh; /* 設置文字大小為色塊高度的一半 */
+    color: white;
+    text-decoration: none;
+    margin-left: 1em; /* 每組文字之間間隔約一個中文字大小 */
+	transition: color 0.3s ease; /* 添加顏色變化的過渡效果 */
+}
+
+.links a:hover {
+    color: steelblue; /* 滑鼠觸碰時的顏色 */
+}
+
+.links a:first-child {
+    margin-left: 0; /* 第一個連結沒有左邊距 */
+}
+
+.glow-effect {
+    position: absolute; /* 設置絕對定位 */
+    top: 10vh; /* 光暈效果的位置緊接在色塊下方 */
+    left: 0;
+    width: 100%;
+    height: 10px; /* 設置光暈效果的高度 */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)); /* 淡淡的白色光暈效果 */
+    text-align: left;
+}
+
+
+
+
+
+.content {
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.image-A, .image-B,.image-C, .image-D, .image-E {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  	
+    transition: opacity 0.5s; /* 淡入淡出效果 */
+}
+
+.image-A {
+    display: block;
+    width: 400px;
+    height: 300px;
+    cursor: pointer;
+    top: calc(50vh + 15vh); /* 向下移动15vh */
+
+}
+
+.image-B {
+	display: block;
+    width: 400px;
+    height: 300px;
+    cursor: pointer; /* 鼠標指針變為手型 */
+    top: calc(50vh + 15vh); /* 向下移动15vh */
+		opacity: 0;
+}
+
+
+.image-C {
+    display: none;
+    width: 300px;
+    height: 300px;
+    top: calc(50vh + 10vh);
+	    left: 50%;
+	  opacity: 0;
+}
+
+.image-D {
+    display: none;
+    width: 95%;
+    height: 95%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* 確保等比例縮放並裁剪多餘部分 */
+	  opacity: 0;
+}
+
+.image-E {
+    display: none;
+    width: 80px;
+    height: 80px;
+    bottom: 3vh; /* 距離畫面下方5vh */
+    left: 50%;
+    transform: translateX(-50%);
+	  opacity: 0;
+}
+
+
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+	position: fixed; /* 將導航欄固定在畫面 */
+    bottom: 0; /* 設置在底部 */
+    width: 100%;
+    z-index: 900; /* 確保在最上層 */
+    transition: bottom 0.3s; /* 添加過渡效果 */
+}
+
+
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+
+  display: inline-block;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: steelblue;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+	bottom: 50px; /* 調整位置，使下拉菜單出現在導航欄上方 */
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+.fullscreen-div {
+	height: 100vh;
+	background-color: #d0d0d0;
+	 margin: 0;
+    padding: 0;
+
+	}
+
+
+#floating-image {
+    position: fixed;
+    top: 1vh;
+    left: 7vh;
+    z-index: 999; /* 確保在最上層 */
+}
+
+#floating-image img {
+    width: 280px;
+    height: 210px;
+}
+
+
+
+.h3new {
+	font-size: 7vh;	 
+	position: relative; 
+	top: 10vh ;
+	color: white;
+	font-family: '新細明體', serif;
+	text-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.1), /* 黑色光暈效果 */
+        0 0 20px rgba(0, 0, 0, 0.2), /* 黑色光暈效果 */
+        0 0 30px rgba(0, 0, 0, 0.3), /* 黑色光暈效果 */
+        0 0 40px rgba(0, 0, 0, 0.4); /* 黑色光暈效果 */
+	text-align: center; /* 文本居中 */
+    width: 100%; /* 占據父元素的全寬 */
+    margin: 0 auto; /* 自動水平居中 */
+	 letter-spacing: 0.1em; /* 设置字距为 0.1em */
+	  font-weight: bold;
+	}
+
+.h3new2 {
+    font-size: 9vh;	 
+    position: absolute; /* 绝对定位 */
+    top: 35vh; /* 距离顶部50% */
+    left: 10vh; /* 距离左边7vh，相当于一个字宽 */
+    transform: translateY(-50%); /* 垂直居中 */
+    color: white;
+    font-family: '新細明體', serif;
+    text-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.1), /* 黑色光暈效果 */
+        0 0 20px rgba(0, 0, 0, 0.2), /* 黑色光暈效果 */
+        0 0 30px rgba(0, 0, 0, 0.3), /* 黑色光暈效果 */
+        0 0 40px rgba(0, 0, 0, 0.4); /* 黑色光暈效果 */
+    writing-mode: vertical-rl; /* 文字竖排显示 */
+    text-align: center; /* 文本居中 */
+    width: auto; /* 自适应宽度 */
+    margin: 0; /* 无外边距 */
+	 letter-spacing: 0.1em; /* 设置字距为 0.1em */
+			
+    font-weight: bold;
+}
+
+.h6new {
+	font-size: 4vh;	 
+	position: relative; 
+	top: 13vh ;
+	color: white;
+	font-family: '新細明體', serif;
+	text-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.1), /* 黑色光暈效果 */
+        0 0 20px rgba(0, 0, 0, 0.2), /* 黑色光暈效果 */
+        0 0 30px rgba(0, 0, 0, 0.3), /* 黑色光暈效果 */
+        0 0 40px rgba(0, 0, 0, 0.4); /* 黑色光暈效果 */
+	text-align: center; /* 文本居中 */
+    width: 100%; /* 占據父元素的全寬 */
+    margin: 0 auto; /* 自動水平居中 */
+	 letter-spacing: 0.1em; /* 设置字距为 0.1em */
+	}
+
+.h6new2 {
+    font-size: 4vh;	 
+    position: absolute; /* 绝对定位 */
+    top: 16vh ;
+    left: 23vh; /* 距离左边7vh，相当于一个字宽 */
+  
+    color: white;
+    font-family: '新細明體', serif;
+    text-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.1), /* 黑色光暈效果 */
+        0 0 20px rgba(0, 0, 0, 0.2), /* 黑色光暈效果 */
+        0 0 30px rgba(0, 0, 0, 0.3), /* 黑色光暈效果 */
+        0 0 40px rgba(0, 0, 0, 0.4); /* 黑色光暈效果 */
+    writing-mode: vertical-rl; /* 文字竖排显示 */
+       text-align: center; /* 文本居中 */
+    width: auto; /* 自适应宽度 */
+    margin: 0; /* 无外边距 */
+	 letter-spacing: 0.1em; /* 设置字距为 0.1em */
+			
+    font-weight: bold;
+	 transform: rotate(360deg); /* 向右旋转180度 */
+}
+
+
+
+
+#story {
+		  height: 100vh; /* 設置區塊的高度為視窗高度 */
+		  background-image: url("素材/background_all.png"); /* 替換成你的自定義圖片路徑 */
+		  background-size: cover; /* 確保圖片覆蓋整個區塊 */
+		  background-position: center; /* 讓圖片居中顯示 */
+		  position: relative;
+	 margin: 0;
+    padding: 0;
+		}
+
+
+		.item-container_story {
+			height: 100%;
+			width: 100%; 
+		 	display: flex;
+		  	justify-content: space-around;
+		  	align-items: center;
+			  position: relative;
+			 margin: 0;
+    padding: 0;
+		}
+
+		.item-container_story img {
+			height: 252px;
+			width: 355px;
+			align-items: center;
+			  position: relative;
+			 margin: 0;
+    padding: 0;
+		}
+
+		.item-container_story p {
+			height: 210px;
+			width: 60%;
+		 	align-items: center ;  
+		 	font-size: 4vh; /* 設置文字大小為色塊高度的一半 */
+	  		color: white;
+	  		font-family: '新細明體', serif;
+		  	line-height: 1.8;  
+			 letter-spacing: 0.1em;
+		  	font-weight: bold;
+		  	 position: relative;
+			 margin: 0;
+    padding: 0;
+	
+			text-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.1), /* 黑色光暈效果 */
+        0 0 20px rgba(0, 0, 0, 0.2), /* 黑色光暈效果 */
+        0 0 30px rgba(0, 0, 0, 0.3), /* 黑色光暈效果 */
+        0 0 40px rgba(0, 0, 0, 0.4); /* 黑色光暈效果 */
+				}
+
+
+#characters {
+			  height: 100vh;
+	
+			  background-image: url("素材/background_p2.png"); 
+			  background-size: cover; /* 確保圖片覆蓋整個區塊 */
+			  background-position: center; /* 讓圖片居中顯示 */
+			  position: relative;
+		background-color: #d0d0d0;
+	 margin: 0;
+    padding: 0;
+	
+	
+			}
+
+	.parallax {
+	  /* The image used */
+	  background-image: url("素材\background_p2.png");
+
+	  /* Set a specific height */
+	  min-height: 500px; 
+
+	  /* Create the parallax scrolling effect */
+	  background-attachment: fixed;
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	}
+
+
+			.item-container_characters {
+					  height: 100%;
+					  width: 100%; 
+					  display: flex;
+					  justify-content: space-around;
+					  align-items: center;
+				 margin: 0;
+    padding: 0;
+				    
+					}
+
+			.item-container_characters img {
+					  height: 343px;
+					  width: 258px;
+						
+				 margin: 0;
+    					padding: 0;
+
+
+					}
+
+
+
+	.flip-card {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        perspective: 1000px;
+        display: inline-block;
+		 display: flex;
+        margin-right: 20px; /* 添加间距 */
+		  align-items: center;
+		top:25%;
+		
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+    }
+
+    .flip-card-front img, .flip-card-back  img {
+ height: 343px;
+					  width: 258px;
+        border-radius: 10px; /* 圆角 */
+        box-shadow: 0 15px 30px rgba(255, 255, 255, 0.7); /* 白色光晕 */
+       
+    }
+
+    .flip-card-back {
+        transform: rotateY(180deg);
+    }
+
+
+#territory {
+		  height: 100vh;
+		  background-image: url("素材/p3.1.PNG"); 
+		  background-size: cover; /* 確保圖片覆蓋整個區塊 */
+		  background-position: center; /* 讓圖片居中顯示 */
+		  position: relative;
+	 margin: 0;
+    padding: 0;
+		}
+
+	.item-container_territory {
+			  height: 100%;
+			  width: 100%; 
+			  display: flex;
+			  justify-content: space-around;
+			  align-items: center;
+		 margin: 0;
+    padding: 0;
+			}
+
+	.item-container_territory img {
+
+				align-items: center;
+		 margin: 0;
+    padding: 0;
+		
+
+		
+		  display: none;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover; /* 確保等比例縮放並裁剪多餘部分 */
+
+			}
+
+
+
+
+#more-info {
+		  height: 100vh;
+		  background-image: url("素材/background_p4.png"); /* 替換成你的自定義圖片路徑 */
+		  background-size: cover; /* 確保圖片覆蓋整個區塊 */
+		  background-position: center; /* 讓圖片居中顯示 */
+	
+		  position: relative;
+	 margin: 0;
+    padding: 0;
+		}
+
+	.parallax_p4 {
+		  /* The image used */
+		  background-image: url("素材\background_p4.png");
+
+		  /* Set a specific height */
+		  min-height: 500px; 
+
+		  /* Create the parallax scrolling effect */
+		  background-attachment: fixed;
+		  background-position: center;
+		  background-repeat: no-repeat;
+		  background-size: cover;
+		}
+
+	.item-container_more-info {
+			  height: 100%;
+			  width: 100%; 
+			  display: flex;
+			  justify-content: space-around;
+			  align-items: center;
+		 margin: 0;
+    padding: 0;
+			}
+
+	.item-container_more-info img {
+			  height: 200px;
+			  width: 200px;
+				align-items: center;
+		 margin: 0;
+    padding: 0;
+		  
+		     box-shadow: 0 15px 30px rgba(255, 255, 255, 0.7); /* 白色光晕 */
+       border-radius: 30px; /* 圆角 */
+		  
+
+			}
+
+
+

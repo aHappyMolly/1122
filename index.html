@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>112-2網頁設計期末_蔡茉莉3112048001</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="smooth-scroll.js"></script> <!-- 引入外部 JavaScript 文件 -->
+	<script src="start-switch1.js" defer></script>
+	<script src="fly-in-image.js" defer></script>
+	 
+	<style>
+		body {
+		  margin: 0;
+		  background-color: #f1f1f1;
+		  font-family: Arial, Helvetica, sans-serif;
+			overflow: auto;
+		
+		}
+
+		#player {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-size: cover;
+            background-image: url("素材/向下.gif"); /* 初始向上的GIF檔 */
+            background-repeat: no-repeat;
+			  display: none; /* 初始隱藏 */
+		
+
+		
+	
+			
+	
+	</style>
+</head>
+	
+	
+<body>
+	
+    <div class="background-image">
+        <img src="素材/title1.png" alt="Overlay Image" class="overlay-image">
+        <img src="素材\btn_start_0.png" alt="Image A" class="image-A" id="imageA">
+		<img src="素材\btn_start_1.png" alt="Image B" class="image-B" id="imageB">
+        <img src="素材\向下.gif" alt="Image C" class="image-C" id="imageC">
+        <img src="素材\p0.2_導覽字.png" alt="Image D" class="image-D" id="imageD">
+        <img src="素材\p0.2_箭頭.png" alt="Image E" class="image-E" id="imageE">
+
+        <div class="overlay-bar">
+            <div class="title">NCHU MAP</div>
+            <div class="links">
+                <a href="#story">起源故事</a>
+                <a href="#characters">角色介紹</a>
+                <a href="#territory">目前疆域</a>
+                <a href="#more-info">更多資訊</a>
+            </div>
+        </div>
+
+        <div class="glow-effect"></div>
+    </div>
+
+	
+	<div id="navbar" class="navbar" >
+	    <div class="dropdown">
+    		<button class="dropbtn">NCHU MAP
+      			<i class="fa fa-caret-down"></i>
+    		</button>
+			<div class="dropdown-content">
+			  <a href="#story">起源故事</a>
+			  <a href="#characters">角色介紹</a>
+			  <a href="#territory">目前疆域</a>
+			  <a href="#more-info">更多資訊</a>
+			</div>
+  		</div>
+	</div>
+
+	
+    <!-- 下方設置的區域 -->
+    <div id="story" class="fullscreen-div">
+        <h3 class="h3new">起源故事</h3>
+		<h6 class="h6new">Story of NCHU Map</h6>
+		<div class="item-container_story">
+            <img src="素材\鑰匙.GIF" alt="">
+			<p> 肥宅尼尼因緣際會的來到了中興大學就讀，<br>
+				學校真的超級大的！<br>
+				在文創系的第一年，也遇到了許多不同類型的人呢..<br>
+				跟著阿尼的腳步一起探索中興大學吧～</p>
+        </div>
+	</div>
+	
+	
+    <div id="characters" class="parallax">
+		<h3 class="h3new">角色介紹</h3>	
+		<h6 class="h6new">Characters in NCHU</h6>
+		<div class="item-container_characters">
+			<div class="flip-card">
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<img src="素材\card_ni_正面.PNG" alt="">
+					</div>				
+					<div class="flip-card-back">
+						<img src="素材\card_ni_背面.PNG" alt="">
+					</div>
+				</div>
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<img src="素材\card_goose_正面.PNG" alt="">
+					</div>				
+					<div class="flip-card-back">
+						<img src="素材\card_goose_背面.PNG" alt="">
+					</div>
+				</div>
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<img src="素材\card_secret_正面.PNG" alt="">
+					</div>				
+					<div class="flip-card-back">
+						<img src="素材\card_secret_背面.PNG" alt="">
+					</div>
+				</div>
+			</div>
+        </div>
+	</div>
+	
+	
+    
+    
+	
+	
+    <div id="territory" class="fullscreen-div">
+			<h3 class="h3new2">目前疆域</h3>	
+			<h6 class="h6new2">Territory of NCHU</h6>
+			<div class="item-container_territory">
+				
+					<img id="fly-in-image" src="素材\fly-in-image.png" alt="Image" >
+			
+
+			</div>
+	</div>
+	
+	
+    <div id="more-info" class="parallax_p4">
+			<h3 class="h3new">更多資訊</h3>	
+			<h6 class="h6new">More Information</h6>
+			<div class="item-container_more-info">
+				<a href="https://reurl.cc/Ejgyaa" target="_blank"> <!-- target="_blank" 用於在新的瀏覽器窗口中打開連結 -->
+    				<img src="素材\Instagram_icon.png" alt="">
+				</a>
+				
+				<a href="https://reurl.cc/1vXEpQ" target="_blank"> <!-- target="_blank" 用於在新的瀏覽器窗口中打開連結 -->
+    				<img src="素材\map_icon.png" alt="">
+				</a>
+				
+				<a href="https://www.instagram.com/nchu.potatoguide?igsh=MWNyZG5odGh5ZG42MA%3D%3D&utm_source=qr" target="_blank"> <!-- target="_blank" 用於在新的瀏覽器窗口中打開連結 -->
+    				<img src="素材\unity_icon.png" alt="">
+				</a>
+				
+				<a href="mailto:o0939876776@gmail.com" target="_blank">
+    				<img src="素材\gmail_icon.png" alt="">
+				</a>
+
+			</div>
+	</div>
+
+
+	
+	
+	<div id="player"></div>
+	<div id="floating-image" style="display: none;">
+		<img src="素材\blood.png" alt="Floating Image">
+	</div>
+	
+	
+	<script src="smooth-scroll.js"></script> <!-- 加入平滑滾動的 JavaScript 文件 -->
+		<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const player = document.getElementById('player');
+			
+            const step = 40; // 提高滾動速度
+            const boundaryOffset = 50; // 與視窗邊緣的距離
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            let scrollTimer;
+
+            function scrollToSmooth(x, y) {
+                window.scrollTo({
+                    left: x,
+                    top: y,
+                    behavior: 'smooth'
+                });
+            }
+
+            function handleBoundary() {
+                const rect = player.getBoundingClientRect();
+
+                if (rect.top <= boundaryOffset && window.scrollY > 0) {
+                    clearTimeout(scrollTimer);
+                    scrollTimer = setTimeout(function() {
+                        scrollToSmooth(0, window.scrollY - boundaryOffset);
+                    }, 50); // 提前滾動開始時間並縮短延遲
+                } else if (rect.bottom >= windowHeight - boundaryOffset && window.scrollY < document.documentElement.scrollHeight - windowHeight) {
+                    clearTimeout(scrollTimer);
+                    scrollTimer = setTimeout(function() {
+                        scrollToSmooth(0, window.scrollY + boundaryOffset);
+                    }, 50); // 提前滾動開始時間並縮短延遲
+                }
+
+               
+            }
+
+			// 阻止空白鍵的預設滾動行為
+window.addEventListener('keydown', function(event) {
+    if (event.key === ' ') {
+        event.preventDefault();
+    }
+});
+
+			
+			
+            document.addEventListener('scroll', handleBoundary);
+
+            document.addEventListener('keydown', function(event) {
+                // 阻止箭頭鍵的默認滾動行為
+                if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+                    event.preventDefault();
+                }
+
+                let top = parseInt(window.getComputedStyle(player).getPropertyValue('top'));
+                let left = parseInt(window.getComputedStyle(player).getPropertyValue('left'));
+
+                switch(event.key) {
+                    case 'ArrowUp':
+                        player.style.top = (top - step) + 'px';
+                        player.style.backgroundImage = "url('素材/向上.gif')"; // 向上的GIF檔
+					
+                        handleBoundary();
+                        break;
+                    case 'ArrowDown':
+                        player.style.top = (top + step) + 'px';
+                        player.style.backgroundImage = "url('素材/向下.gif')"; // 向下的GIF檔
+						
+                        handleBoundary();
+                        break;
+                    case 'ArrowLeft':
+                        player.style.left = (left - step) + 'px';
+                        player.style.backgroundImage = "url('素材/向左.gif')"; // 向左的GIF檔
+					 if (player.offsetLeft + player.clientWidth < 0) {
+                            player.style.left = window.innerWidth + 'px';
+                        }
+                        handleBoundary();
+                        break;
+                    case 'ArrowRight':
+                        player.style.left = (left + step) + 'px';
+                        player.style.backgroundImage = "url('素材/向右.gif')"; // 向右的GIF檔
+						 if (player.offsetLeft > window.innerWidth) {
+                            player.style.left = -player.clientWidth + 'px';
+                        }
+                        handleBoundary();
+                        break;
+                }
+            });
+
+        });
+		
+		// When the user scrolls down 20px from the top of the document, slide down the navbar
+		window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+		  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			document.getElementById("navbar").style.bottom = "0";
+		  } else {
+			document.getElementById("navbar").style.bottom = "-50px";
+		  }
+		}
+	</script>
+	
+	<script>
+function shakeImage() {
+    const imageToShake = document.getElementById('my-image');
+    imageToShake.classList.add('shake-effect');
+
+    // 在一段时间后移除抖动效果
+    setTimeout(() => {
+        imageToShake.classList.remove('shake-effect');
+    }, 500); // 这里的500是抖动效果的持续时间
+}
+
+</script>
+	
+
+</body>
+</html>
